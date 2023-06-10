@@ -118,3 +118,13 @@ END;
 --CALL PROCEDURE:-
 -----------------------------
 CALL AddStudent(3,'Girish','Sharma','15-SEP-95','Male',7844651216,'West Bengal','Kolkata');
+
+--WRITE VIEW QUERY TO FIND A PARTICULAR STUDENT COUSRSE DETAILS:-
+------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW STUDENT_COURSES
+AS
+SELECT S.FIRST_NAME|| ' ' || S.LAST_NAME  STUDENT_NAME ,c.course_name
+FROM STUDENTS S, COURSES C, enrollments E
+WHERE S.STUDENT_ID=e.student_id
+AND E.COURSE_ID=c.course_id;
